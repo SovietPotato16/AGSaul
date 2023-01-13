@@ -11,7 +11,7 @@ weight_limit = 6500
 
 print("Peso Limite: %dkg" % weight_limit)
 print("")
-print("Algoritmo Genetico")
+print("Fuerza Bruta")
 print("----------")
 
 with timer():
@@ -20,7 +20,7 @@ with timer():
 knapsack.print_stats(result[1])
 
 print("")
-print("Fuerza Bruta")
+print("Algoritmo Genetico")
 print("----------")
 
 with timer():
@@ -42,8 +42,16 @@ def print_stats(population: Population, generation_id: int, fitness_func: Fitnes
     print("Peor: %s (%f)" % (genome_to_string(sorted_population[-1]),
                               fitness_func(sorted_population[-1])))
     print("")
+    xpoints = np.array([population_fitness(population, fitness_func),genome])
+	ypoints = np.array([0, sorted_population])
+	plt.plot(xpoints, ypoints)
+	plt.show()
+    
+    matplotlib.rcParams['Gemeracion']
 
     return sorted_population[0]
+
+
 
 sack = knapsack.from_genome(population[0], things)
 
