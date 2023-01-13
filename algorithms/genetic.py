@@ -106,5 +106,6 @@ def run_evolution(
             next_generation += [offspring_a, offspring_b]
 
         population = next_generation
+        print("impresion",population,i)
 
     return population, i

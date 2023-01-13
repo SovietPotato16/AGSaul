@@ -31,6 +31,19 @@ with timer():
 		generation_limit=100
 	)
 
+def print_stats(population: Population, generation_id: int, fitness_func: FitnessFunc):
+    print("Generacion %02d" % generation_id)
+    print("=============")
+    print("Poblacion: [%s]" % ", ".join([genome_to_string(gene) for gene in population]))
+    print("Promedio: %f" % (population_fitness(population, fitness_func) / len(population)))
+    sorted_population = sort_population(population, fitness_func)
+    print(
+        "Mejor: %s (%f)" % (genome_to_string(sorted_population[0]), fitness_func(sorted_population[0])))
+    print("Peor: %s (%f)" % (genome_to_string(sorted_population[-1]),
+                              fitness_func(sorted_population[-1])))
+    print("")
+
+    return sorted_population[0]
 
 sack = knapsack.from_genome(population[0], things)
 

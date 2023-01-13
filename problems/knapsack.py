@@ -1,6 +1,6 @@
 from algorithms.genetic import Genome
 from collections import namedtuple
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 
 Thing = namedtuple('Thing', ['name', 'value', 'weight'])
@@ -46,7 +46,6 @@ def generate_things(num: int) -> [Thing]:
 def fitness(genome: Genome, things: [Thing], weight_limit: int) -> int:
     if len(genome) != len(things):
         raise ValueError("genome and things must be of same length")
-
     weight = 0
     value = 0
     for i, thing in enumerate(things):
@@ -56,7 +55,6 @@ def fitness(genome: Genome, things: [Thing], weight_limit: int) -> int:
 
             if weight > weight_limit:
                 return 0
-    print (genome[i], "value", value)
 
     return value
 
