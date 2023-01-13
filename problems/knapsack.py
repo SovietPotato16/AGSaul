@@ -85,5 +85,13 @@ def print_stats(things: [Thing]):
     print(f"Cosas: {to_string(things)}")
     print(f"Valor {value(things)}")
     print(f"Peso: {weight(things)}")
+
+def plot():
+    print_stats("Cosas",generation, peso, value)
+    result = []
+    for i, thing in enumerate(things):
+        if genome[i] == 1:
+            result += [thing]
+    print (result)
     
     
