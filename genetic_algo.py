@@ -46,7 +46,7 @@ def print_stats(population: Population, generation_id: int, fitness_func: Fitnes
 	ypoints = np.array([0, sorted_population])
 	plt.plot(xpoints, ypoints)
 	plt.show()
-    
+    genetic.pandas()
     matplotlib.rcParams['Gemeracion']
 
     return sorted_population[0]
