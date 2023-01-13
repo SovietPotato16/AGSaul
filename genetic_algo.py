@@ -7,7 +7,7 @@ from utils.analyze import timer
 things = knapsack.generate_things(22)
 things = knapsack.second_example
 
-weight_limit = 3500
+weight_limit = 6500
 
 print("Peso Limite: %dkg" % weight_limit)
 print("")
@@ -28,11 +28,11 @@ with timer():
 		populate_func=partial(genetic.generate_population, size=10, genome_length=len(things)),
 		fitness_func=partial(knapsack.fitness, things=things, weight_limit=weight_limit),
 		fitness_limit=result[0],
-		generation_limit=1000
+		generation_limit=100
 	)
+
 
 sack = knapsack.from_genome(population[0], things)
 
 knapsack.print_stats(sack)
-
 

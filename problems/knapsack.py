@@ -1,5 +1,7 @@
 from algorithms.genetic import Genome
 from collections import namedtuple
+import matplotlib.pyplot as plt
+
 
 Thing = namedtuple('Thing', ['name', 'value', 'weight'])
 
@@ -54,6 +56,7 @@ def fitness(genome: Genome, things: [Thing], weight_limit: int) -> int:
 
             if weight > weight_limit:
                 return 0
+    print (genome[i], "value", value)
 
     return value
 
@@ -63,6 +66,7 @@ def from_genome(genome: Genome, things: [Thing]) -> [Thing]:
     for i, thing in enumerate(things):
         if genome[i] == 1:
             result += [thing]
+    print (result)
 
     return result
 
